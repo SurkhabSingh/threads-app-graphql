@@ -4,6 +4,7 @@ import { User } from "./users/index";
 async function createApolloServerGraphQlServer() {
   const server = new ApolloServer({
     typeDefs: `
+    ${User.typeDefs}
     type Query {
           ${User.queries}
   }
