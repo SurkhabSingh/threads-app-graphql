@@ -6,7 +6,7 @@ async function createApolloServerGraphQlServer() {
     typeDefs: `
     ${User.typeDefs}
     type Query {
-          ${User.queries}
+      ${User.queries}
   }
     type Mutation {
      ${User.mutations}

@@ -14,9 +14,10 @@ async function init() {
       context: async ({ req }) => {
         //@ts-ignore
         const token = req.headers["token"];
+        
         try {
           const user = UserService.decodeJWT(token as string);
-          return { user };
+          return { user};
         } catch (error) {
           return "error";
         }

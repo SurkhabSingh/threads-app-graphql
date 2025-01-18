@@ -21,6 +21,17 @@ model User {
   email String @unique
   password String
   salt String
+  blogs Blog[]  @relation("UserBlogs")
 
   @@map("users")
+}
+
+model Blog {
+  id String @id @default(uuid())
+  userId String? @map("user_id")
+  blogTitle String @map("blog_title")
+  bodyThread String @map("body_thread")
+  blogImageUrl String? @map("blog_image_url")
+  user User? @relation("UserBlogs", fields: [userId], references: [id])
+  @@map("blogs")
 }
